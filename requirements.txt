@@ -1,5 +1,5 @@
 django
 djangorestframework
-mysqlclient  # Or psycopg2-binary if using PostgreSQL
+mysqlclient
 python-decouple
 drf_yasg
