@@ -167,7 +167,7 @@ SESSION_COOKIE_AGE = 1800  # 0.5 hour
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expire on browser close
 SESSION_COOKIE_SECURE = True  # Secure cookie over HTTPS
 SESSION_COOKIE_HTTPONLY = True  # Prevent JS access to session cookie
-SESSION_COOKIE_SAMESITE = 'Strict'  # Restrict cross-site requests
+SESSION_COOKIE_SAMESITE = 'None'  # Restrict cross-site requests
 
 # CSRF settings
 CSRF_COOKIE_SECURE = True  # Secure CSRF cookie over HTTPS

@@ -46,7 +46,7 @@ class LoginView(APIView):
 
 
 class AdminDashboardView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
 
@@ -56,14 +56,14 @@ class AdminDashboardView(APIView):
         return Response({"message": "Admin dashboard details"})
 
 class UserDashboardView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         # Return user dashboard details
         return Response({"message": "User dashboard details"})
 
 class UpdatePasswordView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         # Check if the user is authenticated
@@ -86,7 +86,7 @@ class UpdatePasswordView(APIView):
         return Response({"message": "Password updated successfully"})
 
 class RegisterUserView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         if not is_admin(request.session.get('user_role')):
@@ -120,7 +120,7 @@ class RegisterUserView(APIView):
 
 
 class UpdateUserView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         if not is_admin(request.session.get('user_role')):
@@ -133,7 +133,7 @@ class UpdateUserView(APIView):
         return Response({"message": f"User {user.email} updated successfully"})
 
 class DailyReportView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         """Retrieve daily reports."""
 
@@ -219,7 +219,7 @@ class DailyReportView(APIView):
 
 
 class ReportActionView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         user_role = request.session.get('user_role')
@@ -288,8 +288,8 @@ class ReportActionView(APIView):
 class ApprovalHistoryView(APIView):
 
     authentication_classes = [SessionAuthentication]
-    # permission_classes = [IsAuthenticated]
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
+    # permission_classes = [AllowAny]
 
     def get(self, request):
         user_id = request.session.get('user_id')
