@@ -4,3 +4,4 @@ django-cors-headers==3.13.0
 mysqlclient
 python-decouple
 drf_yasg
+djangorestframework-simplejwt
